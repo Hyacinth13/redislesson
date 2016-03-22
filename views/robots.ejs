@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<%include ./partials/head %>
+</head>
+<body>
+	<header>
+		<%include ./partials/header %>
+	</header>
+	<h1 class="center">The Robo List </h1>
+	<hr>
+	<div class="row">
+		<div class="col s12 m4">
+			<h3>Build a bot!</h3>
+			<form action="/robots" method="post">
+				<input type="text" name="name" placeholder="Name"></input>
+				<input type="text" name="role" placeholder="Role"></input>
+				<button class="btn btn-waves" type="submit">Create</button>
+			</form>
+		</div>
+		<dir>
+			<table class="col s12 m 8">
+				<thead>
+					<th>Title</th>
+					<th>X</th>
+				</thead>
+				<tbody>
+				<% robots.forEach(function(robot){%>
+					<% var href="./robots/delete/" + robot %>
+					<tr>
+						<td> <%= robot %> </td>
+						<td> <a href= <%= href %> + <%= robot %>> Delete</a></td>
+						<% debugger %>
+				<% }); %>
+				</tbody>
+			</table>
+		</dir>
+	</div>	
+</body>
+</html>
